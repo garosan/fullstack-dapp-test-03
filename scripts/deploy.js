@@ -6,7 +6,7 @@ async function main() {
     "SimpleDeFiToken"
   );
   const token = await tokenContractFactory.deploy();
-  console.log("Simple DeFi Token Contract Address: ", token.address);
+  console.log("Simple DeFi Token Contract Address: ", token.target);
   console.log("Deployer: ", deployer.address);
   console.log(
     "Deployer ETH balance: ",
