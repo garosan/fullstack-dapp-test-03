@@ -1,4 +1,5 @@
 const { ethers } = require("hardhat");
+const fs = require("fs");
 
 async function main() {
   const [deployer] = await ethers.getSigners();
@@ -11,6 +12,26 @@ async function main() {
   console.log(
     "Deployer ETH balance: ",
     (await deployer.provider.getBalance(deployer.address)).toString()
+  );
+  saveContractToFrontend(token, "SimpleDeFiToken");
+}
+
+function saveContractToFrontend(contract, name) {
+  const contractsDir = __dirname + "/../src/frontend/contracts";
+  if (!fs.existsSync(contractsDir)) {
+    fs.mkdirSync(contractsDir);
+  }
+
+  fs.writeFileSync(
+    contractsDir + `/${name}-address.json`,
+    JSON.stringify({ address: contract.target }, undefined, 2)
+  );
+
+  const contractArtifact = artifacts.readArtifactSync(name);
+
+  fs.writeFileSync(
+    contractsDir + `/${name}.json`,
+    JSON.stringify(contractArtifact, null, 2)
   );
 }
 
