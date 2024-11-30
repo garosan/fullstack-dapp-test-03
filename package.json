@@ -10,11 +10,16 @@
     "deploy": "npx hardhat run scripts/deploy.js --network"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@mui/icons-material": "^6.1.9",
+    "@mui/material": "^6.1.9",
     "@openzeppelin/contracts": "^5.1.0",
     "chai": "^4.3.7",
     "dotenv": "^16.4.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
